@@ -47,6 +47,11 @@ export const ListItem = styled.li`
   }
 `;
 
+export const BottomLine = styled.div`
+  margin: 20px 0;
+  border-bottom: 1px solid #e8e8e8;
+`;
+
 export const PageSettings = styled.div`
   margin-top: 30px;
   display: flex;

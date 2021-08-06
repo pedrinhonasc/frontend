@@ -9,6 +9,7 @@ import {
   StrikePrice,
   ColorWord,
   Loading,
+  BottomLine,
 } from './styles';
 import Pagination from '../Pagination/index';
 import api from '../../services/api';
@@ -100,18 +101,21 @@ const Grid: React.FC = () => {
               ))}
           </ItemsList>
           {pageData.foundProductsTotal > 0 && (
-            <PageSettings>
-              <DropdownSelector
-                onChange={handleDropdownSelectorChange}
-                value={productsPerPage}
-              >
-                <option value={5}>5 produtos por página</option>
-                <option value={10}>10 produtos por página</option>
-                <option value={15}>15 produtos por página</option>
-                <option value={20}>20 produtos por página</option>
-              </DropdownSelector>
-              <Pagination totalPagesNum={pageData.totalPagesNum} />
-            </PageSettings>
+            <>
+              <BottomLine />
+              <PageSettings>
+                <DropdownSelector
+                  onChange={handleDropdownSelectorChange}
+                  value={productsPerPage}
+                >
+                  <option value={5}>5 produtos por página</option>
+                  <option value={10}>10 produtos por página</option>
+                  <option value={15}>15 produtos por página</option>
+                  <option value={20}>20 produtos por página</option>
+                </DropdownSelector>
+                <Pagination totalPagesNum={pageData.totalPagesNum} />
+              </PageSettings>
+            </>
           )}
         </>
       )}
