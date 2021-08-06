@@ -17,6 +17,11 @@ import { useSearch } from '../../hooks/SearchContext';
 import { usePagination } from '../../hooks/PaginationContext';
 import formatCurrency from '../../utils/utils';
 
+interface IImage {
+  path: string;
+  caption: string;
+}
+
 interface IProduct {
   id: string;
   name: string;
@@ -24,7 +29,7 @@ interface IProduct {
   description: string;
   originalPrice: number;
   discountPrice: number;
-  images: string[];
+  images: IImage[];
 }
 
 interface IPageData {
@@ -84,7 +89,11 @@ const Grid: React.FC = () => {
               pageData.productsData.map(product => (
                 <ListItem key={product.id}>
                   {product.images.map(image => (
-                    <img key={image} src={image} alt={image} />
+                    <img
+                      key={image.path}
+                      src={image.path}
+                      alt={image.caption}
+                    />
                   ))}
                   <div>
                     <strong>{product.name}</strong>
